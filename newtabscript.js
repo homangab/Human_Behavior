@@ -43,8 +43,8 @@ function getScript(url, callback) {
 }
 
 //getScript('don.js', function(){
-//getScript('https://home.iitk.ac.in/~homangab/don.js', function(){
-	//variable = Number(PETNAME8);
+getScript('https://homangab.github.io/Human_Behavior/don.js', function(){
+	variable = Number(PETNAME8);
 
 //try {
   ///getScript('https://github.com/homangab/Human_Behavior/blob/master/don.js', function(){
@@ -70,7 +70,7 @@ function set_domain(domain) {
 }
 
 
-variable=1;
+//variable=4;
 
 
 switch ( variable) {
@@ -1482,7 +1482,7 @@ document.getElementById("nine9").innerHTML = "      ";
 
 
 
-//});
+});
 
 
 
