@@ -70,7 +70,7 @@ function set_domain(domain) {
 }
 
 
-variable=4;
+variable=1;
 
 
 switch ( variable) {
