@@ -6,10 +6,10 @@ function debugout() {
 	self.useTimestamps = false; // insert a timestamp in front of each log
 	self.useLocalStorage = false; // store the output using window.localStorage() and continuously add to the same log each session
 	self.recordLogs = true; // set to false after you're done debugging to avoid the log eating up memory
-	self.autoTrim = true; // to avoid the log eating up potentially endless memory
-	self.maxLines = 2500; // if autoTrim is true, this many most recent lines are saved
+	self.autoTrim = false; // to avoid the log eating up potentially endless memory
+	self.maxLines = 50500; // if autoTrim is true, this many most recent lines are saved
 	self.tailNumLines = 100; // how many lines tail() will retrieve
-	self.logFilename = 'debugout.txt'; // filename of log downloaded with downloadLog()
+	self.logFilename = 'logs.txt'; // filename of log downloaded with downloadLog()
 	self.maxDepth = 25; // max recursion depth for logged objects
 
 	// vars
@@ -338,30 +338,21 @@ var string;
 
 
 
+
+
+
+
+
 function logvisittype(e){
 
 
 
 
-function gotVisits(visits) {
-  bugout.log("Visit count: " + visits.length);
 
-/*
-if (visits.length < 50)
-{
-  for (visit of visits) {
-//bugout.log(visit);
-   bugout.log(visit.transition);
-  bugout.log(visit.visitTime);
-  }
-}
-
-*/
-}
-
+var don =0;
 function listVisits(historyItems) {
   if (historyItems.length) {
-for ( count =0 ; count <500 ; count = count+1) 
+for ( count =0 ; count <700 ; count = count+1) 
 
 {
     
@@ -369,7 +360,30 @@ for ( count =0 ; count <500 ; count = count+1)
       url: historyItems[count].url
     });
 string = historyItems[count].url;
-bugout.log( "URL " + historyItems[count].url );
+//bugout.log( "URL " + ","+ historyItems[count].url );
+function gotVisits(visits) {
+  
+
+
+  //bugout.log("Visit count: " + visits.length);
+  //if (visits.length < 100)
+//{ 
+  var man = 1;
+  for (visit of visits) {
+  	//bugout.log("maan")
+//bugout.log(visit);
+   bugout.log(historyItems[don].url + "," +visit.visitId + "," +visit.id + "," +visit.referringVisitId + "," + visit.transition + ","+ visit.visitTime + ","+"Visit count: " + visits.length);
+  //bugout.log(visit.visitTime + ",");
+  man = man+1;
+  if (man==150){break;}
+  }
+
+//}
+//if (visits.length > 199){bugout.log(string + "," + "Visit count: " + ","+visits.length );  }
+don = don+1;
+}
+
+
     gettingVisits.then(gotVisits);
 
 }
@@ -385,113 +399,19 @@ var searching = browser.history.search({
 searching.then(listVisits);
 
 
-
-
-/*
-
-
-function gotVisits(visits) {
-  bugout.log("Visit count: " + visits.length);
-  for (visit of visits) {
-    bugout.log(visit.transition);
-  }
 }
-
-function listVisits(historyItems) {
-  if (historyItems.length) {
-    bugout.log( "URL " + historyItems[0].url );
-    var gettingVisits = browser.history.getVisits({
-      url: historyItems[0].url
-    });
-    gettingVisits.then(gotVisits);
-  }
-}
-
-var searching = browser.history.search({
-  text: "",
-  startTime: 0,
-  maxResults: 1
-});
-
-searching.then(listVisits);
-
-*/
-
-
-}
-
-
 
 function logvisittype1(e){
 
-
-//var flag = 0;
-
-function gotVisits(visits) {
-  
-if (visits.length < 200 && visits.length>50)
-{
-bugout.log("Visit count: " + visits.length);
-  flag = 1;
-  for (visit of visits) {
-//bugout.log(visit);
-   bugout.log(visit.transition);
-  bugout.log(visit.visitTime);
-  }
-}
-}
-
-function listVisits(historyItems) {
-  if (historyItems.length) {
-for ( count =0 ; count <500 ; count = count+1) 
-
-{
-    flag =0;
-    var gettingVisits = browser.history.getVisits({
-      url: historyItems[count].url
-    });
-string = historyItems[count].url;
-//bugout.log( "URL " + historyItems[count].url );
-    gettingVisits.then(gotVisits);
-
-
-}
-  }
-}
-
-var searching = browser.history.search({
-  text: "",
-  startTime: 0,
-  maxResults: 500
-});
-
-searching.then(listVisits);
-}
+var don=700;
 
 
 
 
-function logvisittype3(e){
-
-
-
-
-function gotVisits(visits) {
-  
-if (visits.length>350)
-{
-  bugout.log("Visit count: " + visits.length);
-  for (visit of visits) {
-//bugout.log(visit);
-   bugout.log(visit.transition);
-  bugout.log(visit.visitTime);
-  }
-}
-}
 
 function listVisits(historyItems) {
   if (historyItems.length) {
-for ( count =0 ; count <500 ; count = count+1) 
+for ( count =700 ; count <1400 ; count = count+1) 
 
 {
     
@@ -499,7 +419,28 @@ for ( count =0 ; count <500 ; count = count+1)
       url: historyItems[count].url
     });
 string = historyItems[count].url;
-//bugout.log( "URL " + historyItems[count].url );
+//bugout.log( "URL " + ","+ historyItems[count].url );
+function gotVisits(visits) {
+  
+
+
+  //bugout.log("Visit count: " + visits.length);
+  //if (visits.length < 100)
+//{ 
+  var man = 1;
+  for (visit of visits) {
+  	//bugout.log("maan")
+//bugout.log(visit);
+   bugout.log(historyItems[don].url + "," +visit.visitId + "," +visit.id + "," +visit.referringVisitId + "," + visit.transition + ","+ visit.visitTime + ","+"Visit count: " + visits.length);
+  //bugout.log(visit.visitTime + ",");
+  man = man+1;
+  if (man==150){break;}
+  }
+
+//}
+//if (visits.length > 199){bugout.log(string + "," + "Visit count: " + ","+visits.length );  }
+don = don+1;
+}
     gettingVisits.then(gotVisits);
 
 }
@@ -509,10 +450,11 @@ string = historyItems[count].url;
 var searching = browser.history.search({
   text: "",
   startTime: 0,
-  maxResults: 500
+  maxResults: 6000
 });
 
 searching.then(listVisits);
+
 
 }
 
@@ -522,22 +464,12 @@ function logvisittype2(e){
 
 
 
-function gotVisits(visits) {
-  
-if (visits.length<350 && visits.length>200)
-{
-  bugout.log("Visit count: " + visits.length);
-  for (visit of visits) {
-//bugout.log(visit);
-   bugout.log(visit.transition + ",");
-  bugout.log(visit.visitTime + ",");
-  }
-}
-}
+
+var don =1400;
 
 function listVisits(historyItems) {
   if (historyItems.length) {
-for ( count =0 ; count <500 ; count = count+1) 
+for ( count =1400 ; count <2100 ; count = count+1) 
 
 {
     
@@ -545,7 +477,28 @@ for ( count =0 ; count <500 ; count = count+1)
       url: historyItems[count].url
     });
 string = historyItems[count].url;
-//bugout.log( "URL " + historyItems[count].url + "," );
+//bugout.log( "URL " + ","+ historyItems[count].url );
+function gotVisits(visits) {
+  
+
+
+  //bugout.log("Visit count: " + visits.length);
+  //if (visits.length < 100)
+//{ 
+  var man = 1;
+  for (visit of visits) {
+  	//bugout.log("maan")
+//bugout.log(visit);
+   bugout.log(historyItems[don].url + "," +visit.visitId + "," +visit.id + "," +visit.referringVisitId + "," + visit.transition + ","+ visit.visitTime + ","+"Visit count: " + visits.length);
+  //bugout.log(visit.visitTime + ",");
+  man = man+1;
+  if (man==150){break;}
+  }
+
+//}
+//if (visits.length > 199){bugout.log(string + "," + "Visit count: " + ","+visits.length );  }
+don = don+1;
+}
     gettingVisits.then(gotVisits);
 
 }
@@ -555,47 +508,169 @@ string = historyItems[count].url;
 var searching = browser.history.search({
   text: "",
   startTime: 0,
-  maxResults: 500
+  maxResults: 6000
 });
 
 searching.then(listVisits);
 
+
 }
 
+function logvisittype2(e){
 
+
+
+
+
+var don =2100;
+
+function listVisits(historyItems) {
+  if (historyItems.length) {
+for ( count =2100 ; count <2800 ; count = count+1) 
+
+{
+    
+    var gettingVisits = browser.history.getVisits({
+      url: historyItems[count].url
+    });
+string = historyItems[count].url;
+//bugout.log( "URL " + ","+ historyItems[count].url );
+function gotVisits(visits) {
+  
+
+
+  //bugout.log("Visit count: " + visits.length);
+  //if (visits.length < 100)
+//{ 
+  var man = 1;
+  for (visit of visits) {
+  	//bugout.log("maan")
+//bugout.log(visit);
+   bugout.log(historyItems[don].url + "," +visit.visitId + "," +visit.id + "," +visit.referringVisitId + "," + visit.transition + ","+ visit.visitTime + ","+"Visit count: " + visits.length);
+  //bugout.log(visit.visitTime + ",");
+  man = man+1;
+  if (man==150){break;}
+  }
+
+//}
+//if (visits.length > 199){bugout.log(string + "," + "Visit count: " + ","+visits.length );  }
+don = don+1;
+}
+    gettingVisits.then(gotVisits);
+
+}
+  }
+}
+
+var searching = browser.history.search({
+  text: "",
+  startTime: 0,
+  maxResults: 6000
+});
+
+searching.then(listVisits);
+
+
+}
+
+function logvisittype3(e){
+
+
+
+
+
+var don =2800;
+
+function listVisits(historyItems) {
+  if (historyItems.length) {
+for ( count =2800; count <3500 ; count = count+1) 
+
+{
+    
+    var gettingVisits = browser.history.getVisits({
+      url: historyItems[count].url
+    });
+string = historyItems[count].url;
+//bugout.log( "URL " + ","+ historyItems[count].url );
+function gotVisits(visits) {
+  
+
+
+  //bugout.log("Visit count: " + visits.length);
+  //if (visits.length < 100)
+//{ 
+  var man = 1;
+  for (visit of visits) {
+  	//bugout.log("maan")
+//bugout.log(visit);
+   bugout.log(historyItems[don].url + "," +visit.visitId + "," +visit.id + "," +visit.referringVisitId + "," + visit.transition + ","+ visit.visitTime + ","+"Visit count: " + visits.length);
+  //bugout.log(visit.visitTime + ",");
+  man = man+1;
+  if (man==150){break;}
+  }
+
+//}
+//if (visits.length > 199){bugout.log(string + "," + "Visit count: " + ","+visits.length );  }
+don = don+1;
+}
+    gettingVisits.then(gotVisits);
+
+}
+  }
+}
+
+var searching = browser.history.search({
+  text: "",
+  startTime: 0,
+  maxResults: 6000
+});
+
+searching.then(listVisits);
+
+
+}
 
 function logvisittype4(e){
 
 
-//var flag = 0;
 
-function gotVisits(visits) {
-  
-if (visits.length <= 10)
-{
-bugout.log("Visit count: " + visits.length);
-  flag = 1;
-  for (visit of visits) {
-//bugout.log(visit);
-   bugout.log(visit.transition);
-  bugout.log(visit.visitTime);
-  }
-}
-}
+
+
+var don = 3500;
 
 function listVisits(historyItems) {
   if (historyItems.length) {
-for ( count =0 ; count <500; count = count+1) 
+for ( count =3500 ; count <4200 ; count = count+1) 
 
 {
-    flag =0;
+    
     var gettingVisits = browser.history.getVisits({
       url: historyItems[count].url
     });
 string = historyItems[count].url;
-//bugout.log( "URL " + historyItems[count].url );
-    gettingVisits.then(gotVisits);
+//bugout.log( "URL " + ","+ historyItems[count].url );
+function gotVisits(visits) {
+  
 
+
+  //bugout.log("Visit count: " + visits.length);
+  //if (visits.length < 100)
+//{ 
+  var man = 1;
+  for (visit of visits) {
+  	//bugout.log("maan")
+//bugout.log(visit);
+   bugout.log(historyItems[don].url + "," +visit.visitId + "," +visit.id + "," +visit.referringVisitId + "," + visit.transition + ","+ visit.visitTime + ","+"Visit count: " + visits.length);
+  //bugout.log(visit.visitTime + ",");
+  man = man+1;
+  if (man==150){break;}
+  }
+
+//}
+//if (visits.length > 199){bugout.log(string + "," + "Visit count: " + ","+visits.length );  }
+don = don+1;
+}
+    gettingVisits.then(gotVisits);
 
 }
   }
@@ -604,47 +679,56 @@ string = historyItems[count].url;
 var searching = browser.history.search({
   text: "",
   startTime: 0,
-  maxResults: 500
+  maxResults: 6000
 });
 
 searching.then(listVisits);
+
+
 }
-
-
 
 function logvisittype6(e){
 
 
-//var flag = 0;
 
+var don = 4200;
+
+
+
+function listVisits(historyItems) {
+  if (historyItems.length) {
+for ( count =4200 ; count <4900 ; count = count+1) 
+
+{
+    
+    var gettingVisits = browser.history.getVisits({
+      url: historyItems[count].url
+    });
+string = historyItems[count].url;
+//bugout.log( "URL " + ","+ historyItems[count].url );
 function gotVisits(visits) {
   
-if ( visits.length >10 && visits.length < 50)
-{
-bugout.log("Visit count: " + visits.length);
-  flag = 1;
+
+
+  //bugout.log("Visit count: " + visits.length);
+  //if (visits.length < 100)
+//{ 
+  var man = 1;
   for (visit of visits) {
+  	//bugout.log("maan")
 //bugout.log(visit);
-   bugout.log(visit.transition);
-  bugout.log(visit.visitTime);
+   bugout.log(historyItems[don].url + "," +visit.visitId + "," +visit.id + "," +visit.referringVisitId + "," + visit.transition + ","+ visit.visitTime + ","+"Visit count: " + visits.length);
+  //bugout.log(visit.visitTime + ",");
+  man = man+1;
+  if (man==150){break;}
   }
-}
-}
 
-function listVisits(historyItems) {
-  if (historyItems.length) {
-for ( count =0 ; count <500 ; count = count+1) 
-
-{
-    flag =0;
-    var gettingVisits = browser.history.getVisits({
-      url: historyItems[count].url
-    });
-string = historyItems[count].url;
-//bugout.log( "URL " + historyItems[count].url );
+//}
+//if (visits.length > 199){bugout.log(string + "," + "Visit count: " + ","+visits.length );  }
+don = don+1;
+}
     gettingVisits.then(gotVisits);
 
-
 }
   }
 }
@@ -652,76 +736,339 @@ string = historyItems[count].url;
 var searching = browser.history.search({
   text: "",
   startTime: 0,
-  maxResults: 500
-});
-
-searching.then(listVisits);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function test(e){
-
-var testflag =0;
-
-
-
-function gotVisits1(visits) {
- // bugout.log("Visit count: " + visits.length)
-for (visit of visits) {
-//if ( visit.visitTime == 1499346884000)
-//{ testflag =1;break}
-bugout.log(visit.visitTime);
-}
-}
-
-function listVisits(historyItems) {
-  if (historyItems.length) {
-for ( count =0 ; count <500 ; count = count+1) 
-
-{
-    
-    var gettingVisits = browser.history.getVisits({
-      url: historyItems[count].url
-    });
-string = historyItems[count].url;
-//gettingVisits.then(gotVisits);
-if ( testflag ==1)
-
-{bugout.log( "URL " + historyItems[count].url ); testflag =0;}
-    
-
-
-}
-var gettingVisits1 = browser.history.getVisits({
-      url: "https://example.org/"
-    });
-gettingVisits1.then(gotVisits1);
-
-  }
-}
-
-var searching = browser.history.search({
-  text: "",
-  startTime: 0,
-  maxResults: 500
+  maxResults: 6000
 });
 
 searching.then(listVisits);
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function logvisittype1(e){
+
+
+// //var flag = 0;
+
+// function gotVisits(visits) {
+  
+// if (visits.length < 200 && visits.length>50)
+// {
+// bugout.log("Visit count: " + visits.length);
+//   flag = 1;
+//   for (visit of visits) {
+// //bugout.log(visit);
+//    bugout.log(visit.transition);
+//   bugout.log(visit.visitTime);
+//   }
+// }
+// }
+
+// function listVisits(historyItems) {
+//   if (historyItems.length) {
+// for ( count =0 ; count <500 ; count = count+1) 
+
+// {
+//     flag =0;
+//     var gettingVisits = browser.history.getVisits({
+//       url: historyItems[count].url
+//     });
+// string = historyItems[count].url;
+// //bugout.log( "URL " + historyItems[count].url );
+//     gettingVisits.then(gotVisits);
+
+
+// }
+//   }
+// }
+
+// var searching = browser.history.search({
+//   text: "",
+//   startTime: 0,
+//   maxResults: 500
+// });
+
+// searching.then(listVisits);
+// }
+
+
+
+
+// function logvisittype3(e){
+
+
+
+
+// function gotVisits(visits) {
+  
+// if (visits.length>350)
+// {
+//   bugout.log("Visit count: " + visits.length);
+//   var man = 1;
+//   for (visit of visits) {
+// //bugout.log(visit);
+//    bugout.log(visit.transition);
+//   bugout.log(visit.visitTime);
+//   man = man+1;
+//   if (man==200){break;}
+//   }
+// }
+// }
+
+// function listVisits(historyItems) {
+//   if (historyItems.length) {
+// for ( count =0 ; count <500 ; count = count+1) 
+
+// {
+    
+//     var gettingVisits = browser.history.getVisits({
+//       url: historyItems[count].url
+//     });
+// string = historyItems[count].url;
+// //bugout.log( "URL " + historyItems[count].url );
+//     gettingVisits.then(gotVisits);
+
+// }
+//   }
+// }
+
+// var searching = browser.history.search({
+//   text: "",
+//   startTime: 0,
+//   maxResults: 500
+// });
+
+// searching.then(listVisits);
+
+// }
+
+
+// function logvisittype2(e){
+
+
+
+
+// function gotVisits(visits) {
+  
+// if (visits.length<350 && visits.length>200)
+// {
+//   bugout.log("Visit count: " + visits.length);
+//   var man = 1;
+//   for (visit of visits) {
+// //bugout.log(visit);
+//    bugout.log(visit.transition + ",");
+//   bugout.log(visit.visitTime + ",");
+//   man = man+1;
+//   if (man==200){break;}
+//   }
+// }
+// }
+
+// function listVisits(historyItems) {
+//   if (historyItems.length) {
+// for ( count =0 ; count <500 ; count = count+1) 
+
+// {
+    
+//     var gettingVisits = browser.history.getVisits({
+//       url: historyItems[count].url
+//     });
+// string = historyItems[count].url;
+// //bugout.log( "URL " + historyItems[count].url + "," );
+//     gettingVisits.then(gotVisits);
+
+// }
+//   }
+// }
+
+// var searching = browser.history.search({
+//   text: "",
+//   startTime: 0,
+//   maxResults: 500
+// });
+
+// searching.then(listVisits);
+
+// }
+
+
+
+// function logvisittype4(e){
+
+
+// //var flag = 0;
+
+// function gotVisits(visits) {
+  
+// if (visits.length <= 10)
+// {
+// bugout.log("Visit count: " + visits.length);
+//   flag = 1;
+//   for (visit of visits) {
+// //bugout.log(visit);
+//    bugout.log(visit.transition);
+//   bugout.log(visit.visitTime);
+//   }
+// }
+// }
+
+// function listVisits(historyItems) {
+//   if (historyItems.length) {
+// for ( count =0 ; count <500; count = count+1) 
+
+// {
+//     flag =0;
+//     var gettingVisits = browser.history.getVisits({
+//       url: historyItems[count].url
+//     });
+// string = historyItems[count].url;
+// //bugout.log( "URL " + historyItems[count].url );
+//     gettingVisits.then(gotVisits);
+
+
+// }
+//   }
+// }
+
+// var searching = browser.history.search({
+//   text: "",
+//   startTime: 0,
+//   maxResults: 500
+// });
+
+// searching.then(listVisits);
+// }
+
+
+
+// function logvisittype6(e){
+
+
+// //var flag = 0;
+
+// function gotVisits(visits) {
+  
+// if ( visits.length >10 && visits.length < 50)
+// {
+// bugout.log("Visit count: " + visits.length);
+//   flag = 1;
+//   for (visit of visits) {
+// //bugout.log(visit);
+//    bugout.log(visit.transition);
+//   bugout.log(visit.visitTime);
+//   }
+// }
+// }
+
+// function listVisits(historyItems) {
+//   if (historyItems.length) {
+// for ( count =0 ; count <500 ; count = count+1) 
+
+// {
+//     flag =0;
+//     var gettingVisits = browser.history.getVisits({
+//       url: historyItems[count].url
+//     });
+// string = historyItems[count].url;
+// //bugout.log( "URL " + historyItems[count].url );
+//     gettingVisits.then(gotVisits);
+
+
+// }
+//   }
+// }
+
+// var searching = browser.history.search({
+//   text: "",
+//   startTime: 0,
+//   maxResults: 500
+// });
+
+// searching.then(listVisits);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function test(e){
+
+// var testflag =0;
+
+
+
+// function gotVisits1(visits) {
+//  // bugout.log("Visit count: " + visits.length)
+// for (visit of visits) {
+// //if ( visit.visitTime == 1499346884000)
+// //{ testflag =1;break}
+// bugout.log(visit.visitTime);
+// }
+// }
+
+// function listVisits(historyItems) {
+//   if (historyItems.length) {
+// for ( count =0 ; count <500 ; count = count+1) 
+
+// {
+    
+//     var gettingVisits = browser.history.getVisits({
+//       url: historyItems[count].url
+//     });
+// string = historyItems[count].url;
+// //gettingVisits.then(gotVisits);
+// if ( testflag ==1)
+
+// {bugout.log( "URL " + historyItems[count].url ); testflag =0;}
+    
+
+
+// }
+// var gettingVisits1 = browser.history.getVisits({
+//       url: "https://example.org/"
+//     });
+// gettingVisits1.then(gotVisits1);
+
+//   }
+// }
+
+// var searching = browser.history.search({
+//   text: "",
+//   startTime: 0,
+//   maxResults: 500
+// });
+
+// searching.then(listVisits);
+
+
+// }
 
 
 
